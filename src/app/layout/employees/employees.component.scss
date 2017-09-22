@@ -1,0 +1,16 @@
+
+[_nghost-c6] /deep/ table {
+border: 1px solid #d9d9d9
+}
+
+ng2-smart-table /deep/  tr {
+    border-bottom: 1px solid #d9d9d9
+}
+
+ng2-smart-table /deep/  tr:nth-child(even) {
+    background: rgba(217, 217, 217, 0.22)
+}
+
+ng2-smart-table /deep/  tr:hover {
+    background: rgba(210, 194, 194, 0.15)
+}

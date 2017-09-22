@@ -1,0 +1,221 @@
+<div class="row mt-3">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-block">
+                <ngb-tabset>
+                    <ngb-tab title="Company">
+                        <ng-template ngbTabContent>
+                            <div class="card cardDesign">
+                                <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+                                    <!-- Company Details -->
+                                    <ngb-panel title="Company Details" style="margin:2px">
+                                        <ng-template ngbPanelContent>
+                                            <form role="form" name="myform">
+                                                <div class="row">
+
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>Company Name <sup style="color:red">*</sup></label>
+                                                        <input id="name" name="name" class="form-control input-validation-error" required [(ngModel)]="hero" #name="ngModel">
+                                                        <div *ngIf="name.invalid && name.touched">
+                                                            <div *ngIf="name.errors.required ">
+                                                                <p class="errorMessage"> Name is required.</p>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>Registration Number</label>
+                                                        <input class="form-control">
+                                                    </fieldset>
+                                                </div>
+                                                <fieldset class="form-group">
+                                                    <label>Description</label>
+                                                    <textarea class="form-control" rows="3"></textarea>
+                                                </fieldset>
+
+                                                <fieldset class="form-group row">
+                                                    <label class="col-xl-4">Is VAT Registered</label>
+                                                    <div class="col-xl-8" [(ngModel)]="model" ngbRadioGroup name="radioBasic">
+                                                        <label class="btn btn-primary">
+                                                <input type="radio" [value]="true"> Yes
+                                            </label>
+                                                        <label class="btn btn-primary">
+                                                <input type="radio" [value]="false"> No
+                                            </label>
+                                                    </div>
+                                                </fieldset>
+                                                <fieldset class="form-group row">
+                                                    <label class="col-xl-4">Is Public</label>
+                                                    <div class="col-xl-8" [(ngModel)]="model" ngbRadioGroup name="radioBasic">
+                                                        <label class="btn btn-primary">
+                                                    <input type="radio" [value]="true"> Yes
+                                                </label>
+                                                        <label class="btn btn-primary">
+                                                    <input type="radio" [value]="false"> No
+                                                </label>
+                                                    </div>
+                                                </fieldset>
+                                            </form>
+                                        </ng-template>
+                                    </ngb-panel>
+                                    <!-- Physical address details -->
+                                    <ngb-panel title="Physical Address Details">
+                                        <ng-template ngbPanelContent>
+                                            <form role="form" name="myform">
+                                                <div class="row">
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>Address 1</label>
+                                                        <input id="name" name="name" class="form-control" [(ngModel)]="hero" #name="ngModel">
+                                                    </fieldset>
+
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>Address 2</label>
+                                                        <input class="form-control">
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="row">
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>City</label>
+                                                        <input id="name" name="name" class="form-control" [(ngModel)]="hero" #name="ngModel">
+                                                    </fieldset>
+
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>State/Provice/Region<sup style="color:#FF0000">*</sup></label>
+                                                        <input class="form-control">
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="row">
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>Postal Code</label>
+                                                        <input id="name" name="name" class="form-control" [(ngModel)]="hero" #name="ngModel">
+                                                    </fieldset>
+
+                                                    <fieldset class="form-group col-xl-4">
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="row">
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>Office</label>
+                                                        <input id="name" name="name" class="form-control" [(ngModel)]="hero" #name="ngModel">
+                                                    </fieldset>
+
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>Fax</label>
+                                                        <input class="form-control">
+                                                    </fieldset>
+                                                </div>
+                                            </form>
+                                        </ng-template>
+                                    </ngb-panel>
+
+                                    <!-- Primary Contact -->
+
+                                    <ngb-panel title="Primary Contact">
+                                        <ng-template ngbPanelContent>
+                                            <form role="form" name="myform">
+                                                <div class="row">
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>First Name</label>
+                                                        <input id="name" name="name" class="form-control" [(ngModel)]="hero" #name="ngModel">
+                                                    </fieldset>
+
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>Last Name</label>
+                                                        <input class="form-control">
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="row">
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>Mobile</label>
+                                                        <input id="name" name="name" class="form-control" [(ngModel)]="hero" #name="ngModel">
+                                                    </fieldset>
+
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>E-Mail<sup style="color:red">*</sup></label>
+                                                        <input class="form-control">
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="row">
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>Postal Code</label>
+                                                        <input id="name" name="name" class="form-control" [(ngModel)]="hero" #name="ngModel">
+                                                    </fieldset>
+
+                                                    <fieldset class="form-group col-xl-4">
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="row">
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>Office</label>
+                                                        <input id="name" name="name" class="form-control" [(ngModel)]="hero" #name="ngModel">
+                                                    </fieldset>
+
+                                                    <fieldset class="form-group col-xl-4">
+                                                        <label>Fax</label>
+                                                        <input class="form-control">
+                                                    </fieldset>
+                                                </div>
+                                            </form>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion>
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+
+                    <ngb-tab title="Addresses">
+                        <ng-template ngbTabContent>
+                            <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four
+                                loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer
+                                mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore
+                                aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente
+                                labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts
+                                beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr
+                                butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                        </ng-template>
+                    </ngb-tab>
+
+                    <ngb-tab title="Registered Roles">
+                        <ng-template ngbTabContent>
+                            <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four
+                                loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer
+                                mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore
+                                aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente
+                                labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts
+                                beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr
+                                butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                        </ng-template>
+                    </ngb-tab>
+
+                    <ngb-tab title="Company Logos">
+                        <ng-template ngbTabContent>
+                            <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua,
+                                retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.
+                                Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure
+                                terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan
+                                american apparel, butcher voluptate nisi qui.</p>
+                        </ng-template>
+                    </ngb-tab>
+
+                    <ngb-tab title="Registered Users">
+                        <ng-template ngbTabContent>
+                            <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four
+                                loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer
+                                mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore
+                                aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente
+                                labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts
+                                beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr
+                                butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                        </ng-template>
+                    </ngb-tab>
+                </ngb-tabset>
+            </div>
+        </div>
+    </div>
+</div>
