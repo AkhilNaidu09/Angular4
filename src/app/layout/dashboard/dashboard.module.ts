@@ -4,7 +4,7 @@ import {
     NgbCarouselModule,
     NgbAlertModule
 } from '@ng-bootstrap/ng-bootstrap';
-
+import { ImageUploadModule} from 'angular2-image-upload';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
@@ -20,6 +20,7 @@ import { StatModule } from '../../shared';
         CommonModule,
         NgbCarouselModule.forRoot(),
         NgbAlertModule.forRoot(),
+        ImageUploadModule.forRoot(),
         DashboardRoutingModule,
         StatModule,
     ],

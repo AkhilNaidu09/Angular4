@@ -17,14 +17,14 @@ export class DashboardComponent implements OnInit {
             label: 'First slide label',
             text: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
         }, {
-            imagePath: 'assets/images/slider2.jpg',
-            label: 'Second slide label',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-        }, {
-            imagePath: 'assets/images/slider3.jpg',
-            label: 'Third slide label',
-            text: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
-        });
+                imagePath: 'assets/images/slider2.jpg',
+                label: 'Second slide label',
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+            }, {
+                imagePath: 'assets/images/slider3.jpg',
+                label: 'Third slide label',
+                text: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
+            });
 
         this.alerts.push({
             id: 1,
@@ -34,16 +34,20 @@ export class DashboardComponent implements OnInit {
                 consectetur velit culpa molestias dignissimos
                 voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
         }, {
-            id: 2,
-            type: 'warning',
-            message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                id: 2,
+                type: 'warning',
+                message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptates est animi quibusdam praesentium quam, et perspiciatis,
                 consectetur velit culpa molestias dignissimos
                 voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
-        });
+            });
     }
 
     ngOnInit() {
+    }
+
+    imageUploaded(event) {
+        console.log(event);
     }
 
     public closeAlert(alert: any) {
