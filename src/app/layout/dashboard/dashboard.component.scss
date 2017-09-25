@@ -1,0 +1,41 @@
+#uploadImage /deep/ .image-upload{
+width: 500px;
+height: 300px;
+border: #484646 dashed 1px !important;
+background-color: #f8f8f8;
+}
+
+#uploadImage /deep/ .file-upload{
+width: 498px;
+height: 198px;
+display: grid;
+text-align: -webkit-center;
+}
+
+#uploadImage /deep/ .image-upload /deep/ .file-upload /deep/ label.upload{
+background-image: url(upload.png);
+--active-color: transparent;
+background-size: 80px 80px;
+background-repeat: no-repeat;
+box-shadow: none;
+height: 80px;
+width: 80px;
+span {
+    display: none;
+}
+margin-bottom: 0;
+-webkit-filter: drop-shadow(1px 6px 4px rgba(0, 0, 0, 0.59));
+filter: drop-shadow(1px 6px 4px rgba(0, 0, 0, 0.59));
+}
+
+* /deep/ .image-container.hr-inline-group {
+    background-color: #f8f8f8 !important;
+}
+
+* /deep/ label.clear.button{
+    display: none;
+}
+
+div.image-container.hr-inline-group > div:parent {
+    border-top: 1px solid rgba(128, 128, 128, 0.22);
+}

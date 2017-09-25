@@ -1,4 +1,8 @@
 $topnav-background-color: #222;
+
+.sidebar[_ngcontent-c3]   .list-group[_ngcontent-c3]   a.router-link-active[_ngcontent-c3] {
+    box-shadow: 1px 0 0 rgb(255,255,255), inset 6px 0 0 -1px white;
+}
 .smallMenu {
     width: 55px !important;
 }
