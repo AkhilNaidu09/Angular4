@@ -17,7 +17,44 @@ export class HeaderComponent implements OnInit {
         });
     }
 
-    ngOnInit() {}
+    ngOnInit() { }
+
+    smallMenu() {
+        const dom: any = document.getElementsByClassName('navbar-brand');
+        const dom2: any = document.querySelectorAll('#sidebar span.sideMenuItemsList');
+        const navSize: any = document.getElementById('sidebar');
+        const mainContaniner: any = document.getElementsByClassName('main-container');
+        console.log(mainContaniner);
+        if (dom[0].classList.contains('myPush')) {
+            dom[0].classList.remove('myPush');
+        }
+        else {
+            dom[0].classList.add('myPush');
+        }
+
+        for (var i = 0; i < dom2.length; i++) {
+            if (dom2[i].classList.contains('myPush')) {
+                dom2[i].classList.remove('myPush');
+            }
+            else {
+                dom2[i].classList.add('myPush');
+            }
+        }
+
+        if (navSize.classList.contains('smallMenu')) {
+            navSize.classList.remove('smallMenu');
+        }
+        else {
+            navSize.classList.add('smallMenu');
+        }
+
+        if (mainContaniner[0].classList.contains('maincontainerSmallMenu')) {
+            mainContaniner[0].classList.remove('maincontainerSmallMenu');
+        }
+        else {
+            mainContaniner[0].classList.add('maincontainerSmallMenu');
+        }
+    }
 
     toggleSidebar() {
         const dom: any = document.querySelector('body');

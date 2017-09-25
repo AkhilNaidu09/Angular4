@@ -1,4 +1,14 @@
 $topnav-background-color: #222;
+.smallMenu {
+    width: 55px !important;
+}
+.myPush{
+    display:none !important;
+        }
+    
+.sidebar a:hover {
+    box-shadow: 1px 0 0 rgb(255,255,255), inset 6px 0 0 -1px white;
+}
 .sidebar{
     border-radius: 0;
     position: fixed;

@@ -1,10 +1,13 @@
 <div class="pos-f-t fixed-top header">
-    <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
-        <div class="row">
+    <nav id="mainNav" class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
+        <div class="row" style="width:242px;padding-left: 5px;">
             <button class="navbar-toggler" (click)="toggleSidebar()">
             <span class="navbar-toggler-icon"></span>
         </button>
             <a class="navbar-brand" href="javascript:void(0)">Angular 4</a>
+            <button class="btn btn-default" (click)="smallMenu()" style="padding: 1px 5px 1px 5px;">
+                <span class="fa fa-bars"></span>
+            </button>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto mt-2 mt-md-0">
