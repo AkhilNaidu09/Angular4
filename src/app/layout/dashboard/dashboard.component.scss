@@ -1,7 +1,6 @@
 #uploadImage /deep/ .image-upload{
 width: 500px;
 height: 300px;
-border: #484646 dashed 1px !important;
 background-color: #f8f8f8;
 }
 
@@ -10,6 +9,7 @@ width: 498px;
 height: 198px;
 display: grid;
 text-align: -webkit-center;
+background: none;
 }
 
 #uploadImage /deep/ .image-upload /deep/ .file-upload /deep/ label.upload{
@@ -28,9 +28,7 @@ margin-bottom: 0;
 filter: drop-shadow(1px 6px 4px rgba(0, 0, 0, 0.59));
 }
 
-* /deep/ .image-container.hr-inline-group {
-    background-color: #f8f8f8 !important;
-}
+
 
 * /deep/ label.clear.button{
     display: none;
@@ -38,4 +36,9 @@ filter: drop-shadow(1px 6px 4px rgba(0, 0, 0, 0.59));
 
 div.image-container.hr-inline-group > div:parent {
     border-top: 1px solid rgba(128, 128, 128, 0.22);
+}
+
+* /deep/  .file-is-over {
+    background:rgba(137, 138, 137, 0.46) !important;
+    color: white;
 }
