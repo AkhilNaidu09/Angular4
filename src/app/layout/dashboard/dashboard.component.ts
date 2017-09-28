@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { DashboardService } from 'app/layout/dashboard/dashboard.service';
-import { PercentPipe } from '@angular/common';
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -40,6 +39,7 @@ export class DashboardComponent implements OnInit {
         };
         this.dashboardService.renderGaugeChart('#gauge', this.gaugeOptions, 'red');
         this.dashboardService.renderGaugeChart('#gauge02', this.gaugeOptions02, 'blue');
+        
     }
 
     imageUploaded(event) {
