@@ -3,6 +3,14 @@
   <!--   
   <image-upload id="uploadImage" [max]="1" [buttonCaption]="'Select Image!'" [dropBoxMessage]="'Drop your image here!'" [extensions]="['jpg','png']"
     (onFileUploadFinish)="imageUploaded($event)"></image-upload> -->
-    <svg id='gauge'></svg>
-    <svg id='gauge02'></svg>
+  <div class="row">
+    <div style="text-align:center">
+      <svg id='gauge' style="min-width: 100%; display:block"></svg>
+      <span class="col percentageFont">{{gaugeOptions.value | percent: '100'}}</span>
+    </div>
+    <div  style="text-align:center">
+      <svg style="min-width: 100%; display:block" id='gauge02'></svg>
+      <span class="col percentageFont">{{gaugeOptions02.value | percent: '100'}}</span>
+    </div>
+  </div>
 </div>

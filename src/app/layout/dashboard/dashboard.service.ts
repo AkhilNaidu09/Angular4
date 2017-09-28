@@ -198,8 +198,8 @@ export class DashboardService {
                     d3.select(container).selectAll('.gauge').remove()
                 }
                 svg = d3.select(container)
-                    .attr('width', that.clipWidth + that.margin.left)
-                    .attr('height', that.clipHeight)
+                    .attr('width', that.clipWidth -50)
+                    .attr('height', (that.clipWidth - 50)/2)
                     .append('svg:svg')
                     .attr('class', 'gauge')
                     .attr('width', that.clipWidth)
