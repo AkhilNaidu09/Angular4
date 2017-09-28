@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
-
+import { DashboardService } from 'app/layout/dashboard/dashboard.service';
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -8,42 +8,35 @@ import { routerTransition } from '../../router.animations';
     animations: [routerTransition()]
 })
 export class DashboardComponent implements OnInit {
+    gauge: (container: any, configuration: any) => any;
     public alerts: Array<any> = [];
     public sliders: Array<any> = [];
 
-    constructor() {
-        this.sliders.push({
-            imagePath: 'assets/images/slider1.jpg',
-            label: 'First slide label',
-            text: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
-        }, {
-                imagePath: 'assets/images/slider2.jpg',
-                label: 'Second slide label',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-            }, {
-                imagePath: 'assets/images/slider3.jpg',
-                label: 'Third slide label',
-                text: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
-            });
+    constructor(private dashboardService: DashboardService) {
 
-        this.alerts.push({
-            id: 1,
-            type: 'success',
-            message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates est animi quibusdam praesentium quam, et perspiciatis,
-                consectetur velit culpa molestias dignissimos
-                voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
-        }, {
-                id: 2,
-                type: 'warning',
-                message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates est animi quibusdam praesentium quam, et perspiciatis,
-                consectetur velit culpa molestias dignissimos
-                voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
-            });
     }
 
     ngOnInit() {
+        var gaugeOptions = {
+            margin: { top: 80, left: 70 },
+            clipWidth: 300,
+            clipHeight: 300,
+            lowSector: '0,100',//red
+            midSector: '42.0,63',//yellow
+            highSector: '63,100',//green	
+            value: 20,
+        };
+        var gaugeOptions02 = {
+            margin: { top: 80, left: 70 },
+            clipWidth: 300,
+            clipHeight: 300,
+            lowSector: '0,100',//red
+            midSector: '42.0,63',//yellow
+            highSector: '63,100',//green	
+            value: 80,
+        };
+        this.dashboardService.renderGaugeChart('#gauge', gaugeOptions, 'red');
+        this.dashboardService.renderGaugeChart('#gauge02', gaugeOptions02, 'blue');
     }
 
     imageUploaded(event) {

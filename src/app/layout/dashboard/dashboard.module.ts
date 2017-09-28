@@ -14,7 +14,7 @@ import {
     ChatComponent
 } from './components';
 import { StatModule } from '../../shared';
-
+import { DashboardService } from 'app/layout/dashboard/dashboard.service';
 @NgModule({
     imports: [
         CommonModule,
@@ -22,13 +22,14 @@ import { StatModule } from '../../shared';
         NgbAlertModule.forRoot(),
         ImageUploadModule.forRoot(),
         DashboardRoutingModule,
-        StatModule,
+        StatModule
     ],
     declarations: [
         DashboardComponent,
         TimelineComponent,
         NotificationComponent,
         ChatComponent
-    ]
+    ],
+    providers: [DashboardService],
 })
 export class DashboardModule { }
