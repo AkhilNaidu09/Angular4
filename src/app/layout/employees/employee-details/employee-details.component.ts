@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
     styleUrls: ['./employee-details.component.scss'],
     animations: [routerTransition()]
 })
+
 export class EmployeeDetailsComponent implements OnInit {
     data: any;
     hero: string;
