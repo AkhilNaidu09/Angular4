@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { DashboardService } from 'app/layout/dashboard/dashboard.service';
+import * as d3 from'd3';
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -20,7 +21,7 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
         this.gaugeOptions = {
-            margin: { top: 0, left: 0 ,  right:0},
+            margin: { top: 0, left: 0, right: 0 },
             clipWidth: 300,
             clipHeight: 160,
             lowSector: '0,100',//red
@@ -29,7 +30,7 @@ export class DashboardComponent implements OnInit {
             value: 20,
         };
         this.gaugeOptions02 = {
-            margin: { top: 0, left: 0, right:0 },
+            margin: { top: 0, left: 0, right: 0 },
             clipWidth: 300,
             clipHeight: 160,
             lowSector: '0,100',//red
@@ -39,9 +40,13 @@ export class DashboardComponent implements OnInit {
         };
         this.dashboardService.renderGaugeChart('#gauge', this.gaugeOptions, 'red');
         this.dashboardService.renderGaugeChart('#gauge02', this.gaugeOptions02, 'blue');
-        
+        this.dashboardService.loadLiquidFillGauge('chart', 50, null);
     }
 
+    
+
+
+ 
     imageUploaded(event) {
         console.log(event);
     }
