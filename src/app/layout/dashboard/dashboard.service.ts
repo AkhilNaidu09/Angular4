@@ -238,42 +238,7 @@ export class DashboardService {
 
                 pointer = pg.append('path')
                     .attr('d', pointerLine/*function(d) { return pointerLine(d) +'Z';}*/)
-                    .attr('transform', 'rotate(' + that.minAngle + ')')
-                    .on("mouseover", function(d,i) {
-                        d3.select(this).transition()
-                            .ease("elastic")
-                            .duration("500")
-                            .attr("r", 35);
-                        d3.select("#clipCircle"+i+" circle").transition()
-                            .ease("cubic-out")
-                            .duration("200")
-                            .attr("r", 32);
-                        d3.select("#text"+i).transition()
-                            .ease("cubic-out")
-                            .duration("200")
-                            .attr("y", 12)
-                            .attr("font-size", 32)
-                            .attr("fill", "#333");
-                    })
-                    .on("mouseout", function(d,i) {
-                        d3.select(this).transition()
-                            .ease("quad")
-                            .delay("100")
-                            .duration("200")
-                            .attr("r", 20);
-                        d3.select("#clipCircle"+i+" circle").transition()
-                            .ease("quad")
-                            .delay("100")
-                            .duration("200")
-                            .attr("r", 0);
-                        d3.select("#text"+i).transition()
-                            .ease("cubic-out")
-                            .duration("400")
-                            .delay("100")
-                            .attr("y", 7)
-                            .attr("font-size", 20)
-                            .attr("fill", "#FFF");;
-                    } );
+                    .attr('transform', 'rotate(' + that.minAngle + ')');
 
                 update();
             }
