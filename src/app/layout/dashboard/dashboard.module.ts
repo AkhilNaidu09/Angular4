@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
+import {NgbModule,
     NgbCarouselModule,
     NgbAlertModule
 } from '@ng-bootstrap/ng-bootstrap';
@@ -22,7 +22,8 @@ import { DashboardService } from 'app/layout/dashboard/dashboard.service';
         NgbAlertModule.forRoot(),
         ImageUploadModule.forRoot(),
         DashboardRoutingModule,
-        StatModule
+        StatModule,
+        NgbModule.forRoot()
     ],
     declarations: [
         DashboardComponent,

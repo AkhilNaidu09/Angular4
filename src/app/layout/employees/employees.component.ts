@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
     templateUrl: './employees.component.html',
     styleUrls: ['./employees.component.scss'],
     animations: [routerTransition()]
+
 })
 export class EmployeesComponent implements OnInit {
     data: any;

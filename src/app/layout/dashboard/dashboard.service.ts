@@ -200,6 +200,7 @@ export class DashboardService {
                 svg = d3.select(container)
                     .attr('width', that.clipWidth - 50)
                     .attr('height', (that.clipWidth - 50) / 2)
+
                     .append('svg:svg')
                     .attr('class', 'gauge')
                     .attr('width', that.clipWidth)
@@ -210,6 +211,7 @@ export class DashboardService {
                 var centerTx = centerTranslation();
 
                 var arcs = svg.append('g')
+
                     .attr('class', 'arc')
                     .attr('transform', centerTx);
 
@@ -217,26 +219,11 @@ export class DashboardService {
                     .data(that.tickData)//populate the section of the dial
                     .enter().append('path')
                     .attr('fill', function (d, i) {
-                        /*return config.arcColorFn(d * i);*/
+                        //return config.sectorColorFn(d * i);
                         return that.sectorColorFn(that.ticks[i + 1]);//fill in all the colors in the dial section
                     })
-                    .attr('d', arc);
-
-                //appending gauge ticks
-                var lg = svg.append('g')
-                    .attr('class', 'label')
-                    .attr('transform', centerTx);
-                lg.selectAll('text')
-                    .data(that.ticks)
-                    .enter().append('text')
-                    .attr('transform', function (d) {//this portion rotate and place the ticks at the correct position surrounding the gauge
-                        //rotate only the displayed majorTicks
-                        var ratio = scale(d);
-                        var newAngle = that.minAngle + (ratio * range);
-                        return 'rotate(' + newAngle + ') translate(0,' + (that.labelInset - r) + ')';
-
-                    })
-                    .text(that.labels);
+                    .attr('d', arc)
+                    .style('stroke', color);
 
                 //create the gauge needle that point to the value
                 var lineData = [[that.pointerWidth / 2, 0],
@@ -251,7 +238,42 @@ export class DashboardService {
 
                 pointer = pg.append('path')
                     .attr('d', pointerLine/*function(d) { return pointerLine(d) +'Z';}*/)
-                    .attr('transform', 'rotate(' + that.minAngle + ')');
+                    .attr('transform', 'rotate(' + that.minAngle + ')')
+                    .on("mouseover", function(d,i) {
+                        d3.select(this).transition()
+                            .ease("elastic")
+                            .duration("500")
+                            .attr("r", 35);
+                        d3.select("#clipCircle"+i+" circle").transition()
+                            .ease("cubic-out")
+                            .duration("200")
+                            .attr("r", 32);
+                        d3.select("#text"+i).transition()
+                            .ease("cubic-out")
+                            .duration("200")
+                            .attr("y", 12)
+                            .attr("font-size", 32)
+                            .attr("fill", "#333");
+                    })
+                    .on("mouseout", function(d,i) {
+                        d3.select(this).transition()
+                            .ease("quad")
+                            .delay("100")
+                            .duration("200")
+                            .attr("r", 20);
+                        d3.select("#clipCircle"+i+" circle").transition()
+                            .ease("quad")
+                            .delay("100")
+                            .duration("200")
+                            .attr("r", 0);
+                        d3.select("#text"+i).transition()
+                            .ease("cubic-out")
+                            .duration("400")
+                            .delay("100")
+                            .attr("y", 7)
+                            .attr("font-size", 20)
+                            .attr("fill", "#FFF");;
+                    } );
 
                 update();
             }
@@ -308,7 +330,7 @@ export class DashboardService {
         textColor: "#045681", // The color of the value text when the wave does not overlap it.
         waveTextColor: "#A4DBf8" // The color of the value text when the wave overlaps it.
     };
-    
+
     loadLiquidFillGauge(elementId, value, config): void {
         if (config == null) config = this.config;
 
@@ -393,7 +415,7 @@ export class DashboardService {
 
         // Center the gauge within the parent SVG.
         let gaugeGroup = gauge.append("g")
-            .attr('transform', 'translate(' + locationX + ',' + locationY + ')');
+            .attr('transform', 'translate(' + 50 + ',' + locationY + ')');
 
         // Draw the outer circle.
         let gaugeCircleArc = d3.arc()

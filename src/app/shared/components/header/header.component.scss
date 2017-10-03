@@ -2,7 +2,12 @@ $topnav-background-color: #222;
     .myPush{
 display:none !important;
     }
-
+.specialNav {
+    height: 40px;
+    background: #001790 !important;
+    color: white;
+    box-shadow: 0px 1px 3px 1px rgba(128, 128, 128, 0.77);
+}
 .topnav {
     border-radius: 0;
     background-color: $topnav-background-color;
