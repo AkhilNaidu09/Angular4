@@ -1,80 +1,73 @@
 <div [@routerTransition]>
-  <h4>Performance Dashboard
-  </h4>
-  <div>
-    <div class="cardTypeDiv">
-      <span class="col" style="font-size: large;"><b>Daily Metrics</b></span>
-      <div class="row" style="padding: 10px;">
-        <div class="centerAlignItems">
-          <span class="col">Returns Vs Projected</span>
-          <svg id='gauge' style="min-width: 100%; display:block">
+    <h4>Performance Dashboard</h4>
+    <div>
+        <div class="cardTypeDiv">
+            <span class="col" style="font-size: large;"><b>Daily Metrics</b></span>
+            <div class="row" style="padding: 10px;">
+                <div class="centerAlignItems">
+                    <span class="col">Returns Vs Projected</span>
+                    <svg id='gauge' class="filldropshadow" style="min-width: 100%; display:block">
+                    </svg>
+                    <p class="col percentageFont">{{gaugeOptions.value}}%</p>
+                </div>
+                <div class="centerAlignItems">
+                    <span class="col">YOY Starts Vs Completed</span>
+                    <svg id='chart' style="display:block" width="220" height="160"></svg>
 
-            <defs>
-              <marker id="arrow" markerUnits="strokeWidth" markerWidth="12" markerHeight="12" viewBox="0 0 12 12" refX="6" refY="6" orient="auto">
-                <path d="M2,2 L10,6 L2,10 L6,6 L2,2" style="fill: #f00;"></path>
-              </marker>
-            </defs>
-          </svg>
-          <p class="col percentageFont">{{gaugeOptions.value}}%</p>
+                </div>
+                <div class="centerAlignItems">
+                    <span class="col">Average Net Fee Vs Target</span>
+                    <svg style="min-width: 100%; display:block" class="filldropshadow" id='gauge02'></svg>
+                    <p class="col percentageFont">{{gaugeOptions02.value}}%</p>
+                </div>
+                <div class="centerAlignItems">
+                    <span class="col">Net Fee</span>
+                    <div class="squareChart">
+                        <span class="centerText">$2500</span>
+                    </div>
+                </div>
+                <div class="centerAlignItems">
+                    <span class="col">Unprinted Checks</span>
+                    <div style="background-color:red;" class="squareChart">
+                        <span class="centerText">$2500</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="centerAlignItems">
-          <span class="col">YOY Starts Vs Completed</span>
-          <svg id='chart' style="display:block" width="220" height="160"></svg>
-
-        </div>
-        <div class="centerAlignItems">
-          <span class="col">Average Net Fee Vs Target</span>
-          <svg style="min-width: 100%; display:block" id='gauge02'></svg>
-          <p class="col percentageFont">{{gaugeOptions02.value}}%</p>
-        </div>
-        <div class="centerAlignItems">
-          <span class="col">Net Fee</span>
-          <div class="squareChart">
-            <span class="centerText">$2500</span>
-          </div>
-        </div>
-        <div class="centerAlignItems">
-          <span class="col">Unprinted Checks</span>
-          <div style="background-color:red;" class="squareChart">
-            <span class="centerText">$2500</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="cardTypeDiv" style="margin-top: 5px;">
-      <span class="col" style="    font-size: large;"><b>YTD Metrics</b>
+        <div class="cardTypeDiv" style="margin-top: 5px;">
+            <span class="col" style="    font-size: large;"><b>YTD Metrics</b>
       </span>
-      <div class="row" style="padding: 10px;">
-        <div class="centerAlignItems">
-          <span class="col">Returns Vs Projected</span>
-          <svg id='gaugeA' style="min-width: 100%; display:block"></svg>
-          <p class="col percentageFont">{{gaugeOptionsA.value}}%</p>
+            <div class="row" style="padding: 10px;">
+                <div class="centerAlignItems">
+                    <span class="col">Returns Vs Projected</span>
+                    <svg id='gaugeA' class="filldropshadow" style="min-width: 100%; display:block"></svg>
+                    <p class="col percentageFont">{{gaugeOptionsA.value}}%</p>
+                </div>
+                <div class="centerAlignItems">
+                    <span class="col">YOY Average Net Fee</span>
+                    <div style="background-color:green;" class="squareChart">
+                        <span class="centerText">$275</span>
+                    </div>
+                </div>
+                <div class="centerAlignItems">
+                    <span class="col">Projected Profit</span>
+                    <div style="background-color:yellow;color:black" class="squareChart">
+                        <span class="centerText">$3,000 on $100,000 Net Payments</span>
+                    </div>
+                </div>
+                <div class="centerAlignItems">
+                    <span class="col">Net Fees</span>
+                    <div style="background-color:green;" class="squareChart">
+                        <span class="centerText">$150,000</span>
+                    </div>
+                </div>
+                <div class="centerAlignItems">
+                    <span class="col">Productivity</span>
+                    <div style="background-color:yellow;color:black" class="squareChart">
+                        <span class="centerText">4.25%</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="centerAlignItems">
-          <span class="col">YOY Average Net Fee</span>
-          <div style="background-color:green;" class="squareChart">
-            <span class="centerText">$275</span>
-          </div>
-        </div>
-        <div class="centerAlignItems">
-          <span class="col">Projected Profit</span>
-          <div style="background-color:yellow;color:black" class="squareChart">
-            <span class="centerText">$3,000 on $100,000 Net Payments</span>
-          </div>
-        </div>
-        <div class="centerAlignItems">
-          <span class="col">Net Fees</span>
-          <div style="background-color:green;" class="squareChart">
-            <span class="centerText">$150,000</span>
-          </div>
-        </div>
-        <div class="centerAlignItems">
-          <span class="col">Productivity</span>
-          <div style="background-color:yellow;color:black" class="squareChart">
-            <span class="centerText">4.25%</span>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
