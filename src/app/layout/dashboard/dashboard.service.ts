@@ -199,42 +199,55 @@ export class DashboardService {
                 }
 
                 svg = d3.select(container)
-                .attr('width', that.clipWidth - 50)
-                .attr('height', (that.clipWidth - 50) / 2)
-                .append('svg:svg')
-                .attr('class', 'gauge')
-                .attr('width', that.clipWidth)
-                .attr('height', that.clipHeight)
-                .attr('x', that.margin.left)
-                .attr('y', that.margin.top);
-                
+                    .attr('width', that.clipWidth - 50)
+                    .attr('height', (that.clipWidth - 50) / 2)
+                    .append('svg:svg')
+                    .attr('class', 'gauge')
+                    .attr('width', that.clipWidth)
+                    .attr('height', that.clipHeight)
+                    .attr('x', that.margin.left)
+                    .attr('y', that.margin.top);
+
                 var centerTx = centerTranslation();
-                
+                var tooltip = d3.select("body")
+                .append("div")
+                .style("position", "absolute")
+                .style("z-index", "10")
+                .style("visibility", "hidden")
+                .text("a simple tooltip");
                 var arcs = svg.append('g')
-                
-                .attr('class', 'arc')
-                .attr('transform', centerTx)
-                .on("click", function () {
-                    console.log("rect");
-                    d3.event.stopPropagation();
-                })
-                .on("mouseover", function (d, i) {  // Add interactivity
-                    console.log("hover");
-                    // Use D3 to select element, change color and size
-                    d3.select(this).attr(
-                        'fill', 'red'
-                    )
-                });
-                
+
+                    .attr('class', 'arc')
+                    .attr('transform', centerTx);
+
                 arcs.selectAll('path')
-                .data(that.tickData)//populate the section of the dial
-                .enter()
-                .append('path')
-                 .filter(function (d, i) { return i === 1;})
+                    .data(that.tickData)//populate the section of the dial
+                    .enter()
+                    .append('path')
+                    .filter(function (d, i) { return i === 1; })
+                    
                     .attr('fill', color)
                     .attr('d', arc)
-                    .style('stroke', color);
-                    
+                    .style('stroke', color)
+                    .append("title")
+                    .text(function(d) { return gaugeOptions.value; })
+                    .on("click", function () {
+                        console.log("rect");
+                        d3.event.stopPropagation();
+                    })
+                    .on("mouseover", function (d, i) {
+                        d3.select(this)
+                            .attr('fill', 'red')
+                            .style("cursor", "pointer")
+                            .style('stroke', 'red');
+                    })
+                    .on("mouseout", function (d, i) {
+                        d3.select(this)
+                            .attr('fill', color)
+                            .style("cursor", "default")
+                            .style('stroke', color);
+                    });
+
                 //create the gauge needle that point to the value
                 var lineData = [[that.pointerWidth / 2, 0],
                 [0, -that.pointerHeadLength],
