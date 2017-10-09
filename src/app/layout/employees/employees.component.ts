@@ -23,10 +23,21 @@ export class EmployeesComponent implements OnInit {
         });
     }
 
+    // tslint:disable-next-line:member-ordering
     settings = {
         columns: {
             userId: {
-                title: 'Company Id'
+                title: 'Company Id',
+                type: 'html',
+                editor: {
+                    type: 'list',
+                    config: {
+                        list: [{ value: 'Antonette', title: 'Antonette' }, { value: 'Bret', title: 'Bret' }, {
+                            value: '<b>Samantha</b>',
+                            title: 'Samantha'
+                        }]
+                    }
+                }
             },
             id: {
                 title: 'Employee Number'
@@ -39,7 +50,7 @@ export class EmployeesComponent implements OnInit {
             }
         },
         actions: {
-            edit: false,
+            edit: true,
             add: false,
             delete: false,
             position: 'right'
