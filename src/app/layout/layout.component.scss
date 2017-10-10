@@ -18,3 +18,8 @@
 .maincontainerSmallMenu {
     margin-left: 55px !important;
 }
+
+
+ * /deep/ .form-group  {
+    margin-bottom: 0;
+}
